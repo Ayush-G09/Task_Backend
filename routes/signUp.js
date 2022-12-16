@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const router = new express.Router();
 const validator = require("validator");
 const UserDetails = require("../models/user");
@@ -7,7 +8,7 @@ const app = express();
 
 app.use(router);
 
-router.post("/signUp", async (req, res) => {
+router.post("/signUp", cors(), async (req, res) => {
   try {
     if (
       req.body.userName &&

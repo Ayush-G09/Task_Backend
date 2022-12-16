@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const router = new express.Router();
 const UserDetails = require("../models/user");
 const bcrypt = require("bcrypt");
@@ -16,7 +17,7 @@ const generateAuthToken = (id, userName) => {
   return token;
 };
 
-router.post("/login", async (req, res) => {
+router.post("/login", cors(), async (req, res) => {
   try {
     if (req.body.userName && req.body.password) {
       const userName = req.body.userName;
