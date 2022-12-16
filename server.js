@@ -9,9 +9,10 @@ require("./config/db");
 const signUp = require("./routes/signUp");
 const loginRoute = require("./routes/login");
 
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+
 
 const PORT = process.env.SERVER_PORT;
 
